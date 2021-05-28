@@ -39,7 +39,7 @@
                   <div class="panel-note2">
                     <div class="panel-note3">
                       <div class="add-data-btn">
-                        <button class="add-btn">
+                        <button class="add-btn" id="btnAdd">
                           <span class="add-btn-wrapper">
                             <div class="add-btn-label">
                               <span class="material-icons"> add </span>
@@ -90,9 +90,17 @@
 
               <div class="search-note">
                 <div class="search-input">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 0 24 24"
+                    width="24px"
+                    fill="#000000"
+                  >
                     <path d="M0 0h24v24H0z" fill="none" />
-                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    <path
+                      d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                    />
                   </svg>
                   <input
                     placeholder="Search title note"
@@ -142,6 +150,40 @@
       </div>
     </div>
 
+    <div class="main-modal">
+      <div id="addNoteForm" class="modal">
+        <div class="main-dialog">
+          <div class="dialog">
+            <div class="dialog2">
+              <div class="dialog-header">
+                <div class="dialog-title">Start new Note</div>
+              </div>
+              <form class="dialog-form" autocomplete="off" novalidate action="">
+                <div class="form-container">
+                  <div class="form-note-title">
+                    <div class="form-title1">
+                      <div class="form-title2" id="create-title-id">
+                        <label><span>Title Note</span></label>
+                        <div class="form-title-input">
+                          <input
+                            class="input-field-title"
+                            type="text"
+                            aria-labelledby="create-title-id"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-body1"></div>
+                  <div class="form-action"></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
       var parentContent = document.getElementById("scroll-content");
       var noteItem = parentContent.getElementsByClassName("data-list-item");
@@ -172,6 +214,34 @@
         const value = e.target.innerHTML;
         value === "" && (e.target.innerHTML = placeholder);
       });
+    </script>
+
+    <script>
+      // Get the modal
+      var modal = document.getElementById("addNoteForm");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("btnAdd");
+
+      // Get the <span> element that closes the modal
+      // var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks on the button, open the modal
+      btn.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      // When the user clicks on <span> (x), close the modal
+      // span.onclick = function () {
+      //   modal.style.display = "none";
+      // };
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
     </script>
   </body>
 </html>

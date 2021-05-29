@@ -11,9 +11,64 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
     <title>Document</title>
   </head>
   <body>
+    <div class="main-modal">
+      <div id="addNoteForm" class="modal">
+        <div class="main-dialog">
+          <div class="dialog">
+            <div class="dialog2">
+              <div class="dialog-header">
+                <div class="dialog-title">Start new Note</div>
+              </div>
+              <form class="dialog-form" autocomplete="off" novalidate action="">
+                <div class="form-container">
+                  <div class="form-note-title">
+                    <div class="form-title1">
+                      <div class="form-title2" id="create-title-id">
+                        <label><span>Title Note</span></label>
+                        <div class="form-title-input">
+                          <input
+                            class="input-field-title"
+                            type="text"
+                            aria-labelledby="create-title-id"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-body1">
+                    <div class="form-body2">
+                      <div class="form-body3">
+                        <div
+                          class="form-detail-input"
+                          contenteditable="true"
+                          data-placeholder="Let's take notes !"
+                          spellcheck="true"
+                          id="editNote"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-action">
+                    <button class="cancel" id="cancel-new-note">
+                      <span class="button-wrapper">Cancel</span>
+                    </button>
+                    <button class="add" id="add-new-note">
+                      <span class="button-wrapper">Create</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="div-note1">
       <div class="div-note2">
         <div class="div-note3 card">
@@ -150,40 +205,6 @@
       </div>
     </div>
 
-    <div class="main-modal">
-      <div id="addNoteForm" class="modal">
-        <div class="main-dialog">
-          <div class="dialog">
-            <div class="dialog2">
-              <div class="dialog-header">
-                <div class="dialog-title">Start new Note</div>
-              </div>
-              <form class="dialog-form" autocomplete="off" novalidate action="">
-                <div class="form-container">
-                  <div class="form-note-title">
-                    <div class="form-title1">
-                      <div class="form-title2" id="create-title-id">
-                        <label><span>Title Note</span></label>
-                        <div class="form-title-input">
-                          <input
-                            class="input-field-title"
-                            type="text"
-                            aria-labelledby="create-title-id"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-body1"></div>
-                  <div class="form-action"></div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <script>
       var parentContent = document.getElementById("scroll-content");
       var noteItem = parentContent.getElementsByClassName("data-list-item");
@@ -224,7 +245,7 @@
       var btn = document.getElementById("btnAdd");
 
       // Get the <span> element that closes the modal
-      // var span = document.getElementsByClassName("close")[0];
+      var btnCancel = document.getElementsByClassName("cancel")[0];
 
       // When the user clicks on the button, open the modal
       btn.onclick = function () {
@@ -232,15 +253,8 @@
       };
 
       // When the user clicks on <span> (x), close the modal
-      // span.onclick = function () {
-      //   modal.style.display = "none";
-      // };
-
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function (event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
+      btnCancel.onclick = function () {
+        modal.style.display = "none";
       };
     </script>
   </body>
